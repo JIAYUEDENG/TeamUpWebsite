@@ -33,7 +33,7 @@ public class UserController {
 
         if (u == null || !u.getPassword().equals(password)) return Result.error("Login failed");
 
-        if (!u.getActive()) return Result.error("Account is banned");
+        //if (!u.getActive()) return Result.error("Account is banned");
 
         request.getSession().setAttribute("user", u.getId());
 
@@ -44,5 +44,18 @@ public class UserController {
     public Result<String> logout(HttpServletRequest request){
         request.getSession().removeAttribute("user");
         return Result.success("Logged out");
+    }
+
+    @PostMapping("/register")
+    public Result<User> register(@RequestBody User user){
+        if (user.getUserName() == null){
+            user = new User();
+            /*
+            todo set new user attribute
+             */
+            userService.save(user);
+            return Result.success(user);
+        }
+        return Result.error("User already exists");
     }
 }

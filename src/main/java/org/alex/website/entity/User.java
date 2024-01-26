@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class User implements Serializable {
@@ -13,7 +14,7 @@ public class User implements Serializable {
 
     private Long roleId;
 
-    private Enum role;
+    private Enum userRole;
 
     private String fullName;
 
@@ -21,22 +22,20 @@ public class User implements Serializable {
 
     private String password;
 
-    private Boolean isActive;
+    //private Boolean isActive;
 
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
+    private Boolean isStudent;
 
+    private Boolean isTeamLeader;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateTime;
+    private Boolean isProfessor;
 
+    private Boolean isMarker;
 
-    @TableField(fill = FieldFill.INSERT)
-    private Long createUser;
+    private Boolean isAdministrator;
 
+    private Long projectId;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Long updateUser;
 
     public Long getId() {
         return id;
@@ -54,12 +53,12 @@ public class User implements Serializable {
         this.roleId = roleId;
     }
 
-    public Enum getRole() {
-        return role;
+    public Enum userRole() {
+        return userRole;
     }
 
-    public void setRole(Enum role) {
-        this.role = role;
+    public void userRole(Enum role) {
+        this.userRole = role;
     }
 
     public String getFullName() {
@@ -86,43 +85,52 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Boolean getActive() {
-        return isActive;
+//    public Boolean getActive() {
+//        return isActive;
+//    }
+//
+//    public void setActive(Boolean active) {
+//        isActive = active;
+//    }
+
+    public Boolean getStudent() {
+        return isStudent;
     }
 
-    public void setActive(Boolean active) {
-        isActive = active;
+    public void setStudent(Boolean student) {
+        isStudent = student;
     }
 
-    public LocalDateTime getCreateTime() {
-        return createTime;
+    public Boolean getTeamLeader() {
+        return isTeamLeader;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
+    public void setTeamLeader(Boolean teamLeader) {
+        isTeamLeader = teamLeader;
     }
 
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
+    public Boolean getProfessor() {
+        return isProfessor;
     }
 
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
+    public void setProfessor(Boolean professor) {
+        isProfessor = professor;
     }
 
-    public Long getCreateUser() {
-        return createUser;
+    public Boolean getMarker() {
+        return isMarker;
     }
 
-    public void setCreateUser(Long createUser) {
-        this.createUser = createUser;
+    public void setMarker(Boolean marker) {
+        isMarker = marker;
     }
 
-    public Long getUpdateUser() {
-        return updateUser;
+    public Boolean getAdministrator() {
+        return isAdministrator;
     }
 
-    public void setUpdateUser(Long updateUser) {
-        this.updateUser = updateUser;
+    public void setAdministrator(Boolean administrator) {
+        isAdministrator = administrator;
     }
+
 }

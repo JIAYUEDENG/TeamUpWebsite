@@ -13,27 +13,13 @@ public class Project implements Serializable {
 
     private String projectName;
 
-    private Long categoryId;
+    //private Long categoryId;
 
-    //0 close  1 open
-    private Integer status;
+    private Boolean status;
 
     private String description;
 
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
-
-
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateTime;
-
-
-    @TableField(fill = FieldFill.INSERT)
-    private Long createUser;
-
-
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Long updateUser;
+    private Integer maxStudents;
 
     public Long getId() {
         return id;
@@ -51,19 +37,19 @@ public class Project implements Serializable {
         this.projectName = projectName;
     }
 
-    public Long getCategoryId() {
-        return categoryId;
-    }
+//    public Long getCategoryId() {
+//        return categoryId;
+//    }
+//
+//    public void setCategoryId(Long categoryId) {
+//        this.categoryId = categoryId;
+//    }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public Integer getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
@@ -76,35 +62,11 @@ public class Project implements Serializable {
         this.description = description;
     }
 
-    public LocalDateTime getCreateTime() {
-        return createTime;
+    public Integer getMaxStudents() {
+        return maxStudents;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
-
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Long getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Long createUser) {
-        this.createUser = createUser;
-    }
-
-    public Long getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(Long updateUser) {
-        this.updateUser = updateUser;
+    public void setMaxStudents(Integer maxStudents) {
+        this.maxStudents = maxStudents;
     }
 }
