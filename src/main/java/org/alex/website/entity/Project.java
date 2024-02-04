@@ -21,6 +21,8 @@ public class Project implements Serializable {
 
     private Integer maxStudents;
 
+    private Integer currentStudents;
+
     public Long getId() {
         return id;
     }
@@ -68,5 +70,13 @@ public class Project implements Serializable {
 
     public void setMaxStudents(Integer maxStudents) {
         this.maxStudents = maxStudents;
+    }
+
+    public Integer getCurrentStudents() {
+        return currentStudents;
+    }
+
+    public void setCurrentStudents(Integer currentStudents) {
+        this.currentStudents = currentStudents;
     }
 }

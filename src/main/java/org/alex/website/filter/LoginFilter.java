@@ -2,7 +2,6 @@ package org.alex.website.filter;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.alex.website.common.Result;
 import org.springframework.util.AntPathMatcher;
 
 import javax.servlet.*;
@@ -41,7 +40,7 @@ public class LoginFilter implements Filter {
             return;
         }
         log.info("User is not logged in");
-        httpServletResponse.getWriter().write(JSON.toJSONString(Result.error("Not logged in yet")));
+        httpServletResponse.getWriter().write(JSON.toJSONString("Not logged in yet"));
         return;
 
     }
