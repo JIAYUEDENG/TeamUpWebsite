@@ -20,14 +20,15 @@ public class UserController {
     @PostMapping("/login")
     public User login(HttpServletRequest request, @RequestBody User user){
         String password = user.getPassword();
-        //password = DigestUtils.md5DigestAsHex(password.getBytes());
 
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(User::getUserName, user.getUserName());
         User u = userService.getOne(queryWrapper);
 
-        if (u != null && u.getPassword().equals(password)) request.getSession().setAttribute("user", u.getId());
-
+        if (u == null || !u.getPassword().equals(password)){
+            return null;
+        }
+        request.getSession().setAttribute("user", u.getId());
         return u;
     }
 
@@ -40,10 +41,7 @@ public class UserController {
     @PostMapping("/register")
     public User register(@RequestBody User user){
         if (user.getUserName() == null){
-            user = new User();
-            /*
-            todo set new user attribute
-             */
+            user = new User(user.getId(),user.getUserRole(), user.getFullName(), user.getUserName(), user.getPassword());
             userService.save(user);
         }
         return user;

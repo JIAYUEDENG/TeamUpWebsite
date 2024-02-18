@@ -19,8 +19,8 @@ public class ProjectController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/saveProject")
-    public boolean saveProject(@RequestBody Project project, Long userId){
+    @PostMapping("/saveProject/{userId}")
+    public boolean saveProject(@RequestBody Project project,@PathVariable Long userId){
         log.info(project.toString());
         User user = userService.getById(userId);
         if (user.getUserRole() == Role.TEAMLEADER || user.getUserRole() == Role.PROFESSOR || user.getUserRole() == Role.MARKER) {
@@ -47,7 +47,7 @@ public class ProjectController {
         return false;
     }
 
-    @PostMapping("/deleteProject")
+    @DeleteMapping("/deleteProject")
     public boolean deleteProject(Long userID, Long projectID){
         //log.info(project.toString());
         User user = userService.getById(userID);

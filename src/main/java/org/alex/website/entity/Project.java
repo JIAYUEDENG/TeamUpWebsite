@@ -23,6 +23,15 @@ public class Project implements Serializable {
 
     private Integer currentStudents;
 
+    public Project(Long id, String projectName, Boolean status, String description, Integer maxStudents, Integer currentStudents) {
+        this.id = id;
+        this.projectName = projectName;
+        this.status = status;
+        this.description = description;
+        this.maxStudents = maxStudents;
+        this.currentStudents = currentStudents;
+    }
+
     public Long getId() {
         return id;
     }

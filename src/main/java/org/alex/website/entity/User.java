@@ -36,6 +36,28 @@ public class User implements Serializable {
 
     private Long projectId;
 
+    public User(Long id, Enum userRole, String fullName, String userName, String password) {
+        this.id = id;
+        this.userRole = userRole;
+        this.fullName = fullName;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public User(Long id, Long roleId, Enum userRole, String fullName, String userName, String password, Boolean isStudent, Boolean isTeamLeader, Boolean isProfessor, Boolean isMarker, Boolean isAdministrator, Long projectId) {
+        this.id = id;
+        this.roleId = roleId;
+        this.userRole = userRole;
+        this.fullName = fullName;
+        this.userName = userName;
+        this.password = password;
+        this.isStudent = isStudent;
+        this.isTeamLeader = isTeamLeader;
+        this.isProfessor = isProfessor;
+        this.isMarker = isMarker;
+        this.isAdministrator = isAdministrator;
+        this.projectId = projectId;
+    }
 
     public Long getId() {
         return id;
