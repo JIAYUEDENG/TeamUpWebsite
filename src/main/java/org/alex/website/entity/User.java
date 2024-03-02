@@ -12,17 +12,13 @@ import java.util.List;
 public class User implements Serializable {
     private Long id;
 
-    private Long roleId;
-
-    private Enum userRole;
+    private Role userRole;
 
     private String fullName;
 
     private String userName;
 
     private String password;
-
-    //private Boolean isActive;
 
     private Boolean isStudent;
 
@@ -36,7 +32,7 @@ public class User implements Serializable {
 
     private Long projectId;
 
-    public User(Long id, Enum userRole, String fullName, String userName, String password) {
+    public User(Long id, Role userRole, String fullName, String userName, String password) {
         this.id = id;
         this.userRole = userRole;
         this.fullName = fullName;
@@ -44,9 +40,8 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public User(Long id, Long roleId, Enum userRole, String fullName, String userName, String password, Boolean isStudent, Boolean isTeamLeader, Boolean isProfessor, Boolean isMarker, Boolean isAdministrator, Long projectId) {
+    public User(Long id, Role userRole, String fullName, String userName, String password, Boolean isStudent, Boolean isTeamLeader, Boolean isProfessor, Boolean isMarker, Boolean isAdministrator, Long projectId) {
         this.id = id;
-        this.roleId = roleId;
         this.userRole = userRole;
         this.fullName = fullName;
         this.userName = userName;
@@ -67,19 +62,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public Long getRoleId() {
-        return roleId;
-    }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
-    }
-
-    public Enum userRole() {
+    public Role userRole() {
         return userRole;
     }
 
-    public void userRole(Enum role) {
+    public void userRole(Role role) {
         this.userRole = role;
     }
 
